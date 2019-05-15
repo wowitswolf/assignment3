@@ -1,0 +1,16 @@
+###Aufgabe 1
+text <- ""#"text" definieren...entweder Sample oder Extra Dataset einfügen
+k <- #hier gegebenes k aus Sample oder ExtraDataset einfügen
+  
+#als erstes frequency_array als funktion von "text" und "k"  definieren  
+frequency_array <- function (text, k) { 
+  
+  output<- rep(0, 4^k) #output so definieren mit "rep", dass er später mehrere Zahlen angibt..."rep" repliziert die Werte (mehr zu rep: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/rep)
+  #Bedingung für die Werte "1" bis "nchar(text)-k+1", dabei zählt "nchar" die Zeichen von "text"
+  for (i in 1:(nchar(text)-k+1)){
+    id <- pattern_to_number (substr(text, i, i+k-1))+1 #
+    output [id] <- output [id]+1 #jedes mal wenn Bedingung erfüllt dann "output" von "id" +1 addieren
+  }
+  return (output) #output ausgeben mit "return"
+}
+frequency_array(text, k) #unseren Wert für "frequency_array" angeben lassen (in abhängigkeit von "text" und "k")
