@@ -1,0 +1,13 @@
+###Aufgabe 4
+#"fasterfrequentwords" wird als funktion von text und k definiert
+fasterfrequentwords <- function (text, k) {
+  result <- {} #das "result" wird erst einmal leer gesetzt, damit es dann anfolgend "gefüllt" werden kann
+  frequency_array <- frequencyarray (text, k) #der frequency_array wird als frequencyarray definiert von text und k
+  j <- 1 #j wird erst einmal auf 1 gesetzt
+  #für die Bedingung i in welcher "frequency_array"= dem max count von "frequency_array" wird das result von "j" als number_to_pattern von (i-1, k) gesetzt und j anschließend mit 1 addiert
+  for (i in which (frequency_array == max(frequency_array))){
+    result [j] <- number_to_pattern (i-1, k)
+    j <- j+1
+  }
+  return (result)#result wird am Ende ausgegeben
+}
