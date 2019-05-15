@@ -1,0 +1,30 @@
+###Aufgabe 2
+pattern <- "" #hier wird "pattern" das jeweilige pattern entweder aus Sample oder Extra Dataset zugewiesen
+#pattern_to_number wird als funktion in abhängigkeit des gegebenen patterns definiert
+pattern_to_number <- function (pattern) {
+  result <- 0 #das result wird erst einmal auf 0 gesetzt
+  n <- 0      #ebenso das "n" wird auf 0 gesetzt
+  
+  #für die Bedingung i in Zeichenanzahl von Pattern zu 1 wird k auf 0 gesetzt
+  for (i in nchar(pattern):1) {
+    k <- 0
+    
+    #wenn der substring (mehr zu substr: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/substr)
+    #= "C" ist wird k auf 1 gesetzt
+    if (substr(pattern, i, i)== "C"){
+      k<- 1
+    }
+    #wenn der substring ="G" ist wird k auf 2 gesetzt
+    else if (substr(pattern, i, i)=="G"){
+      k <-2
+    }
+    #wenn der substring ="T" ist wird k auf 3 gesetzt
+    else if (substr(pattern, i, i)=="T") {
+      k <- 3
+    }
+    result <- result + k*(4^n)#"result" wird addiert mit "(k * (4^n))"
+    n <- n+1 #n wird addiert mit 1
+  }
+  return (result)#mit return wieder das result ausgeben 
+}
+pattern_to_number(pattern) #"pattern_to_number" in abhängigkeit vom pattern anzeigen lassen
